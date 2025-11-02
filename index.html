@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión F1</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="/js/app.js" defer></script>
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/carrusel.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- MODAL DE LOGIN debe estar aquí dentro -->
+    <div id="login-modal" class="login-modal hidden">
+        <div class="login-modal-bg"></div>
+        <form class="login-box" autocomplete="off">
+            <h2><span style="color:#e10600">F1</span> Iniciar Sesión</h2>
+            <div class="login-field">
+                <input type="text" id="user" name="user" placeholder="Usuario" required />
+            </div>
+            <div class="login-field">
+                <input type="password" id="pass" name="pass" placeholder="Contraseña" required />
+            </div>
+            <button class="login-main-btn" type="submit">Acceder</button>
+            <p class="login-message"></p>
+            <button type="button" class="login-close-btn" title="Cerrar">&times;</button>
+        </form>
+    </div>
+    <!-- FIN MODAL DE LOGIN -->
+
+    <nav class="f1-navbar">
+        <div class="f1-stripes-bg"></div>
+        <div class="f1-logo-box">
+            <img src="/image/formula-1-seeklogo.png" alt="F1" class="f1-logo-effect" />
+        </div>
+        <ul class="f1-menu">
+            <li><a href="#">Cronograma</a></li>
+            <li><a href="#">Resultados</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Conductores</a></li>
+            <li><a href="#">Equipos</a></li>
+            <li><a href="#">Circuitos</a></li>
+        </ul>
+        <div class="f1-btns">
+            <a href="#" class="btn-login">Iniciar sesión</a>
+            <a href="#" class="btn-subscribe">Suscribirse</a>
+        </div>
+    </nav>
+    <div class="carrusel-f1">
+        <div class="carrusel-inner">
+            <img src="/image/GettyImages-186020178.avif" alt="F1 Foto 1" class="carrusel-img active">
+            <img src="/image/Mexico.avif" alt="F1 Foto 2" class="carrusel-img">
+            <img src="/image/Las Vegas.avif" alt="F1 Foto 3" class="carrusel-img">
+        </div>
+        <button class="carrusel-btn prev">&#8678;</button>
+        <button class="carrusel-btn next">&#8680;</button>
+    </div>
+</body>
+</html>
