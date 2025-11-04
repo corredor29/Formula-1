@@ -1,38 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const app = document.getElementById('app');
-    app.innerHTML = `
-        <button class="btn-animated">Agregar circuito</button>
-        <div class="circuit-list"></div>
-    `;
-    // Animación JS al hacer click
-    document.querySelector('.btn-animated').addEventListener('click', () => {
-        document.querySelector('.circuit-list').classList.add('fadeIn');
-    });
-
-    // Modal functionality
-    const createAccountModal = document.getElementById('create-account-modal');
     const loginModal = document.getElementById('login-modal');
+    const createAccountModal = document.getElementById('create-account-modal');
+    const subscribeModal = document.getElementById('modal-suscripcion');
     const btnLogin = document.querySelector('.btn-login');
     const btnSubscribe = document.querySelector('.btn-subscribe');
 
-    // Open create account modal from "Iniciar sesión" button
+    // Open login modal from "Iniciar sesión" button
     if (btnLogin) {
         btnLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            createAccountModal.classList.add('active');
-        });
-    }
-
-    // Open login modal from "Suscribirse" button
-    if (btnSubscribe) {
-        btnSubscribe.addEventListener('click', (e) => {
             e.preventDefault();
             loginModal.classList.add('active');
         });
     }
 
+    // Open subscription modal from "Suscribirse" button
+    if (btnSubscribe) {
+        btnSubscribe.addEventListener('click', (e) => {
+            e.preventDefault();
+            subscribeModal.classList.remove('oculto');
+        });
+    }
+
     // Close modals
     document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal-close') || e.target === subscribeModal) {
+            subscribeModal.classList.add('oculto');
+        }
         if (e.target.classList.contains('f1-login-close') || e.target === loginModal) {
             loginModal.classList.remove('active');
         }
@@ -113,40 +106,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Switch between login and create account
-    const loginLink = document.querySelector('.f1-create-help a');
-    const createLink = document.querySelector('.f1-login-help a');
-
-    if (loginLink) {
-        loginLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            createAccountModal.classList.remove('active');
-            loginModal.classList.add('active');
-        });
-    }
-
-    if (createLink) {
-        createLink.addEventListener('click', (e) => {
+    // Switch links between login and create account
+    loginModal.addEventListener('click', (e) => {
+        if (e.target.closest('.f1-login-help a')) {
             e.preventDefault();
             loginModal.classList.remove('active');
             createAccountModal.classList.add('active');
-        });
-    }
-});
-// Selecciona el link "Crear cuenta" en el login
-const createLink = document.querySelector('.f1-login-help a');
-
-// Selecciona ambos modales
-const createAccountModal = document.getElementById('create-account-modal');
-const loginModal = document.getElementById('login-modal');
-
-if (createLink) {
-    createLink.addEventListener('click', (e) => {
-        e.preventDefault();
-            loginModal.classList.remove('active');
-            loginModal.style.display = 'none';
-            createAccountModal.style.display = 'flex';
-            // Le da tiempo al CSS para animar la clase .active si tienes animaciones
-            setTimeout(()=>createAccountModal.classList.add('active'),10);
+        }
     });
-}
+
+    createAccountModal.addEventListener('click', (e) => {
+        if (e.target.closest('.f1-create-help a')) {
+            e.preventDefault();
+            createAccountModal.classList.remove('active');
+            loginModal.classList.add('active');
+        }
+    });
+});

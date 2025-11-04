@@ -106,25 +106,62 @@
             
         </div>
     </div>
-    <div class="create-account-modal" id="create-account-modal">
-        <div class="f1-create-split">
-            <div class="f1-create-imgbox">
-                <img src="/image/GettyImages-186020178.avif" alt="F1 background" class="f1-bg-img"/>
+
+
+    <div class="f1-login-modal" id="login-modal">
+        <div class="f1-login-split">
+            <div class="f1-login-imgbox">
+                <img src="/image/formula-1-seeklogo.png" alt="F1" class="f1-bg-img" />
                 <div class="f1-logo-bottom">
-                    <img src="/image/formula-1-seeklogo.png" alt="Logo F1" class="f1-logo-mini"/>
+                    <img src="/image/formula-1-seeklogo.png" alt="F1 Mini" class="f1-logo-mini" />
                     <div>
-                        <div class="f1-side-title">Formula 1</div>
-                        <div class="f1-side-desc">ÚNETE A LA VELOCIDAD</div>
+                        <div class="f1-side-title">Fórmula 1</div>
+                        <div class="f1-side-desc">Accede a tu cuenta</div>
                     </div>
                 </div>
-                <div class="racing-flag">
-                    <div class="flag-wave"></div>
-                </div>
             </div>
+            <form class="f1-login-form" id="f1LoginForm" autocomplete="off">
+                <button type="button" class="f1-login-close" title="Cerrar">&times;</button>
+                <h2><span>Iniciar sesión</span></h2>
+                <div class="f1-field modern">
+                    <input type="email" id="email" name="email" required placeholder=" " />
+                    <label for="email">Correo electrónico</label>
+                </div>
+                <div class="f1-field modern">
+                    <input type="password" id="password" name="password" required autocomplete="current-password" placeholder=" " />
+                    <label for="password">Contraseña</label>
+                    <span class="f1-eye" id="togglePassword">&#128065;</span>
+                </div>
+                <div class="f1-login-row">
+                    <label class="f1-checkbox">
+                    <input type="checkbox" id="remember" />
+                    Recordarme
+                    </label>
+                    <a href="#" class="f1-link-alt">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button class="f1-login-btn" type="submit">
+                    <span>🏁 Iniciar sesión</span>
+                </button>
+                <div class="f1-login-help">
+                    ¿No tienes cuenta? <a href="#" class="f1-link-alt">Crear cuenta</a>
+                </div>
+                <p class="f1-login-msg"></p>
+            </form>
+        </div>
+    </div>
 
-            <form class="f1-create-form" id="f1CreateForm" autocomplete="off">
+    <div class="f1-create-account-modal" id="create-account-modal">
+        <div class="f1-create-startlights"></div>
+            <div class="f1-create-box">
                 <button type="button" class="f1-create-close" title="Cerrar">&times;</button>
-                <h2><span>Crear cuenta</span></h2>
+                <div class="f1-create-img-col">
+                    <img src="/image/formula-1-seeklogo.png" alt="Logo F1" class="f1-create-logo"/>
+                    <img src="/image/16594428574845.jpg" alt="Fondo" class="f1-create-bg"/>
+                    <div class="f1-create-overlay"></div>
+                <span class="f1-create-promo">¡ÚNETE A LA VELOCIDAD!</span>
+                </div>
+                <form class="f1-create-form" id="f1CreateForm" autocomplete="off">
+                <h2><span>Crear cuenta F1</span></h2>
                 <div class="f1-field modern">
                     <input type="text" id="name" name="name" required placeholder=" " />
                     <label for="name">Nombre completo</label>
@@ -134,68 +171,33 @@
                     <label for="emailCreate">Correo electrónico</label>
                 </div>
                 <div class="f1-field modern">
-                    <input type="password" id="passwordCreate" name="password" required placeholder=" " />
+                    <input type="password" id="passwordCreate" name="password" required autocomplete="new-password" placeholder=" " />
                     <label for="passwordCreate">Contraseña</label>
-                    <span class="f1-eye" id="togglePasswordCreate" title="Mostrar">&#128065;</span>
+                    <span class="f1-eye" id="togglePasswordCreate">&#128065;</span>
+                    <progress class="f1-strength" max="4" value="0" id="strengthBar"></progress>
                 </div>
                 <div class="f1-field modern">
-                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder=" " />
+                    <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password" placeholder=" " />
                     <label for="confirmPassword">Confirmar contraseña</label>
-                    <span class="f1-eye" id="toggleConfirmPassword" title="Mostrar">&#128065;</span>
+                    <span class="f1-eye" id="toggleConfirmPassword">&#128065;</span>
                 </div>
                 <div class="f1-create-row">
                     <label class="f1-checkbox">
-                        <input type="checkbox" id="terms" required />
-                        Acepto los términos y condiciones
+                    <input type="checkbox" id="terms" required />
+                    Acepto los términos y condiciones
                     </label>
                 </div>
-                <button class="f1-create-btn" type="submit">Crear cuenta</button>
+                <button class="f1-create-btn" type="submit">
+                    <span>🚦 Crear cuenta</span>
+                </button>
                 <div class="f1-create-help">
                     ¿Ya tienes cuenta? <a href="#" class="f1-link-alt">Iniciar sesión</a>
                 </div>
                 <p class="f1-create-msg"></p>
-            </form>
-        </div>
+                </form>
+            </div>
     </div>
 
-    <div class="f1-login-split" id="login-modal">
-        <div class="f1-login-imgbox">
-            <img src="/image/GettyImages-2180750768.avif" alt="F1 background" class="f1-bg-img"/>
-            <div class="f1-logo-bottom">
-                <img src="/image/formula-1-seeklogo.png" alt="Logo F1" class="f1-logo-mini"/>
-                <div>
-                    <div class="f1-side-title">Formula 1</div>
-                    <div class="f1-side-desc">VELÓCIDAD Y PASIÓN</div>
-                </div>
-            </div>
-        </div>
-
-        <form class="f1-login-form" id="f1LoginForm" autocomplete="off">
-            <button type="button" class="f1-login-close" title="Cerrar">&times;</button>
-            <h2><span>Iniciar sesión</span></h2>
-            <div class="f1-field modern">
-                <input type="email" id="email" name="email" required autocomplete="username" placeholder=" " />
-                <label for="email">Correo electrónico</label>
-            </div>
-            <div class="f1-field modern">
-                <input type="password" id="password" name="password" required autocomplete="current-password" placeholder=" " />
-                <label for="password">Contraseña</label>
-                <span class="f1-eye" id="togglePassword" title="Mostrar">&#128065;</span>
-            </div>
-            <div class="f1-login-row">
-                <label class="f1-checkbox">
-                    <input type="checkbox" id="remember" />
-                    Recuérdame
-                </label>
-                <a href="#" class="f1-link-alt">¿Olvidaste tu contraseña?</a>
-            </div>
-            <button class="f1-login-btn" type="submit">Entrar</button>
-            <div class="f1-login-help">
-                ¿No tienes cuenta? <a href="#" class="f1-link-alt">Crear cuenta</a>
-            </div>
-            <p class="f1-login-msg"></p>
-        </form>
-    </div>
     <nav class="f1-navbar">
         <div class="f1-stripes-bg"></div>
         <div class="f1-logo-box">
