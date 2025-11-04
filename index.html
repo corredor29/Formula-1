@@ -11,24 +11,191 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- MODAL DE LOGIN debe estar aquí dentro -->
-    <div id="login-modal" class="login-modal hidden">
-        <div class="login-modal-bg"></div>
-        <form class="login-box" autocomplete="off">
-            <h2><span style="color:#e10600">F1</span> Iniciar Sesión</h2>
-            <div class="login-field">
-                <input type="text" id="user" name="user" placeholder="Usuario" required />
+    <div id="modal-suscripcion" class="modal-suscripcion oculto">
+        <div class="modal-suscripcion-inner">
+            
+            <button class="modal-close" onclick="document.getElementById('modal-suscripcion').classList.add('oculto')" aria-label="Cerrar modal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            
+            <div class="modal-content-grid">
+            
+            <div class="modal-left-column">
+                <div class="modal-header">
+                <h2 class="modal-title">Suscripción Premium</h2>
+                <p class="modal-subtitle">Accede a todo el contenido exclusivo de Fórmula 1</p>
+                </div>
+                
+                <form class="card-form" id="cardForm">
+                
+                <div class="form-group">
+                    <label for="ccNumberInput">Número de tarjeta</label>
+                    <input type="text" id="ccNumberInput" maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="cc-number" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="ccNameInput">Nombre en la tarjeta</label>
+                    <input type="text" id="ccNameInput" maxlength="30" placeholder="Nombre completo" autocomplete="cc-name" required />
+                </div>
+                
+                <div class="flex-row">
+                    <div class="form-group">
+                    <label for="ccExpInput">Vencimiento</label>
+                    <input type="text" id="ccExpInput" maxlength="5" placeholder="MM/AA" autocomplete="cc-exp" required />
+                    </div>
+                    <div class="form-group">
+                    <label for="ccCvvInput">CVV</label>
+                    <input type="text" id="ccCvvInput" maxlength="4" placeholder="•••" autocomplete="cc-csc" required />
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-subscribe-card">
+                    <span class="btn-text">Suscribirse</span>
+                    <span class="btn-icon">→</span>
+                </button>
+                <div class="modal-racing-footer">
+                <img src="/image/formula-1-seeklogo.png" class="footer-logo" alt="F1" />
+                <span class="footer-text">Tu acceso premium al mundo F1</span>
+                </div>
+                </form>
             </div>
-            <div class="login-field">
-                <input type="password" id="pass" name="pass" placeholder="Contraseña" required />
+            
+            <!-- COLUMNA DERECHA: Tarjeta animada -->
+            <div class="modal-right-column">
+                <div class="credit-card" id="creditCard">
+                <div class="credit-card-inner" id="creditCardInner">
+                    
+                    <!-- Frente -->
+                    <div class="credit-card-front">
+                    <div class="cc-shine"></div>
+                    <div class="cc-chip"></div>
+                    <img src="/image/formula-1-seeklogo.png" alt="F1 Logo" class="cc-logo" />
+                    <div class="cc-number" id="ccNumberDisplay">•••• •••• •••• ••••</div>
+                    <div class="cc-details">
+                        <div class="cc-holder">
+                        <span class="cc-label">Titular</span>
+                        <span class="cc-name" id="ccNameDisplay">NOMBRE COMPLETO</span>
+                        </div>
+                        <div class="cc-expiry">
+                        <span class="cc-label">Vence</span>
+                        <span class="cc-exp" id="ccExpDisplay">MM/AA</span>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <!-- Reverso -->
+                    <div class="credit-card-back">
+                        <div class="cc-stripe"></div>
+                        <div class="cc-back-content">
+                            <span class="cc-cvv-label">CVV</span>
+                            <span class="cc-cvv" id="ccCvvDisplay">•••</span>
+                        </div>
+                        <div class="cc-brand">FÓRMULA 1 PREMIUM</div>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- Badge de seguridad -->
+                <div class="security-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>Transacción 100% segura</span>
+                </div>
             </div>
-            <button class="login-main-btn" type="submit">Acceder</button>
-            <p class="login-message"></p>
-            <button type="button" class="login-close-btn" title="Cerrar">&times;</button>
+            
+            </div>
+            
+        </div>
+    </div>
+    <div class="create-account-modal" id="create-account-modal">
+        <div class="f1-create-split">
+            <div class="f1-create-imgbox">
+                <img src="/image/GettyImages-186020178.avif" alt="F1 background" class="f1-bg-img"/>
+                <div class="f1-logo-bottom">
+                    <img src="/image/formula-1-seeklogo.png" alt="Logo F1" class="f1-logo-mini"/>
+                    <div>
+                        <div class="f1-side-title">Formula 1</div>
+                        <div class="f1-side-desc">ÚNETE A LA VELOCIDAD</div>
+                    </div>
+                </div>
+                <div class="racing-flag">
+                    <div class="flag-wave"></div>
+                </div>
+            </div>
+
+            <form class="f1-create-form" id="f1CreateForm" autocomplete="off">
+                <button type="button" class="f1-create-close" title="Cerrar">&times;</button>
+                <h2><span>Crear cuenta</span></h2>
+                <div class="f1-field modern">
+                    <input type="text" id="name" name="name" required placeholder=" " />
+                    <label for="name">Nombre completo</label>
+                </div>
+                <div class="f1-field modern">
+                    <input type="email" id="emailCreate" name="email" required placeholder=" " />
+                    <label for="emailCreate">Correo electrónico</label>
+                </div>
+                <div class="f1-field modern">
+                    <input type="password" id="passwordCreate" name="password" required placeholder=" " />
+                    <label for="passwordCreate">Contraseña</label>
+                    <span class="f1-eye" id="togglePasswordCreate" title="Mostrar">&#128065;</span>
+                </div>
+                <div class="f1-field modern">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder=" " />
+                    <label for="confirmPassword">Confirmar contraseña</label>
+                    <span class="f1-eye" id="toggleConfirmPassword" title="Mostrar">&#128065;</span>
+                </div>
+                <div class="f1-create-row">
+                    <label class="f1-checkbox">
+                        <input type="checkbox" id="terms" required />
+                        Acepto los términos y condiciones
+                    </label>
+                </div>
+                <button class="f1-create-btn" type="submit">Crear cuenta</button>
+                <div class="f1-create-help">
+                    ¿Ya tienes cuenta? <a href="#" class="f1-link-alt">Iniciar sesión</a>
+                </div>
+                <p class="f1-create-msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="f1-login-split" id="login-modal">
+        <div class="f1-login-imgbox">
+            <img src="/image/GettyImages-2180750768.avif" alt="F1 background" class="f1-bg-img"/>
+            <div class="f1-logo-bottom">
+                <img src="/image/formula-1-seeklogo.png" alt="Logo F1" class="f1-logo-mini"/>
+                <div>
+                    <div class="f1-side-title">Formula 1</div>
+                    <div class="f1-side-desc">VELÓCIDAD Y PASIÓN</div>
+                </div>
+            </div>
+        </div>
+
+        <form class="f1-login-form" id="f1LoginForm" autocomplete="off">
+            <button type="button" class="f1-login-close" title="Cerrar">&times;</button>
+            <h2><span>Iniciar sesión</span></h2>
+            <div class="f1-field modern">
+                <input type="email" id="email" name="email" required autocomplete="username" placeholder=" " />
+                <label for="email">Correo electrónico</label>
+            </div>
+            <div class="f1-field modern">
+                <input type="password" id="password" name="password" required autocomplete="current-password" placeholder=" " />
+                <label for="password">Contraseña</label>
+                <span class="f1-eye" id="togglePassword" title="Mostrar">&#128065;</span>
+            </div>
+            <div class="f1-login-row">
+                <label class="f1-checkbox">
+                    <input type="checkbox" id="remember" />
+                    Recuérdame
+                </label>
+                <a href="#" class="f1-link-alt">¿Olvidaste tu contraseña?</a>
+            </div>
+            <button class="f1-login-btn" type="submit">Entrar</button>
+            <div class="f1-login-help">
+                ¿No tienes cuenta? <a href="#" class="f1-link-alt">Crear cuenta</a>
+            </div>
+            <p class="f1-login-msg"></p>
         </form>
     </div>
-    <!-- FIN MODAL DE LOGIN -->
-
     <nav class="f1-navbar">
         <div class="f1-stripes-bg"></div>
         <div class="f1-logo-box">
